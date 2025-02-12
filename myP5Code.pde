@@ -1,50 +1,52 @@
-//🟢Setup Procedure - Runs Once to Set The Canvas
-void setup(){
-  size(600, 400); 
-  background(255,255,255);
+//🟢setup Function - will run once
+setup = function() {
+    size(600, 400);
+    
+    
+    drawFish(200, 200, color(200,0,200)); 
+    drawFish(300, 200, color(0,200,200));
+};
+var bubbles=0;
 
-
-}
-
-//🟢Draw Function - Runs on Repeat
-draw = function(){  
-
+//🟢draw Function - will run on repeat
+draw = function(){
+background(255,255,255,0);
+//boat
+fill(169, 169, 169);
+ ellipse(100,70+bubbles,30,40);
+  ellipse(250,115+bubbles,15,20);
+  ellipse(355,48+bubbles,15,22);
+  ellipse(205,95+bubbles,35,45);
+  ellipse(280,53+bubbles,15,20);
+  bubbles++
 };
 
-//🟡Extra FUN Features Ms. Hall Added
-//Proceed with Caution (and Curiosity!)
-
-//🟡drawStar Function - custom function created by Ms. Hall
-var drawStar = function(){
-  var starSize = random(2,12);
-  var starX = mouseX + random(-12,12);
-  var starY = mouseY + random(-12,12);
-  textSize(starSize);
-  text("😀",starX, starY);
-};
-
-//🟡mouseClicked Function - will run when the mouse is clicked
+//🟢mouseClicked Function - will run when mouse is clicked
 mouseClicked = function(){
-  var myText = "x: " + mouseX + "\ny: " + mouseY;
-  console.log(myText);
+drawFish();
+drawFish();
+ drawFish();
 
-  drawStar();
-  drawStar();
-  drawStar();
-  
-  
-  drawname();
-drawname();
-drawname();
+drawemoji(100,150);
+  drawemoji(250,250);
+   drawemoji(300,150);
+ 
+}
+var drawemoji = function(emojiX, emojiY){
+ textSize(80);
+
+  var emoji= "🐠";
+text("🐠",emojiX, emojiY);
+}
+
+
+//🟡drawFish Function - will run when called
+var drawFish = function(fishX, fishY, fishColor){
+  textSize(80);
+  fill(fishColor);
+  text("𓆝", fishX, fishY);
 };
 
 
-var   drawname = function(){
-  var textX = random(50, 550);
-  var textY = random(50, 350);
-  var yourName = "Reyana";
 
-  fill(241,9,55);
-  textSize(40);
-  text("Hiiii, " + yourName, textX, textY);
-}
+
